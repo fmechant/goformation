@@ -21,6 +21,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/batch"
 	"github.com/awslabs/goformation/v4/cloudformation/budgets"
 	"github.com/awslabs/goformation/v4/cloudformation/certificatemanager"
+	"github.com/awslabs/goformation/v4/cloudformation/chatbot"
 	"github.com/awslabs/goformation/v4/cloudformation/cloud9"
 	"github.com/awslabs/goformation/v4/cloudformation/cloudformation"
 	"github.com/awslabs/goformation/v4/cloudformation/cloudfront"
@@ -31,6 +32,7 @@ import (
 	"github.com/awslabs/goformation/v4/cloudformation/codedeploy"
 	"github.com/awslabs/goformation/v4/cloudformation/codepipeline"
 	"github.com/awslabs/goformation/v4/cloudformation/codestar"
+	"github.com/awslabs/goformation/v4/cloudformation/codestarconnections"
 	"github.com/awslabs/goformation/v4/cloudformation/codestarnotifications"
 	"github.com/awslabs/goformation/v4/cloudformation/cognito"
 	"github.com/awslabs/goformation/v4/cloudformation/config"
@@ -182,6 +184,7 @@ func AllResources() map[string]Resource {
 		"AWS::ApplicationAutoScaling::ScalableTarget":                 &applicationautoscaling.ScalableTarget{},
 		"AWS::ApplicationAutoScaling::ScalingPolicy":                  &applicationautoscaling.ScalingPolicy{},
 		"AWS::Athena::NamedQuery":                                     &athena.NamedQuery{},
+		"AWS::Athena::WorkGroup":                                      &athena.WorkGroup{},
 		"AWS::AutoScaling::AutoScalingGroup":                          &autoscaling.AutoScalingGroup{},
 		"AWS::AutoScaling::LaunchConfiguration":                       &autoscaling.LaunchConfiguration{},
 		"AWS::AutoScaling::LifecycleHook":                             &autoscaling.LifecycleHook{},
@@ -196,6 +199,7 @@ func AllResources() map[string]Resource {
 		"AWS::Batch::JobQueue":                                        &batch.JobQueue{},
 		"AWS::Budgets::Budget":                                        &budgets.Budget{},
 		"AWS::CertificateManager::Certificate":                        &certificatemanager.Certificate{},
+		"AWS::Chatbot::SlackChannelConfiguration":                     &chatbot.SlackChannelConfiguration{},
 		"AWS::Cloud9::EnvironmentEC2":                                 &cloud9.EnvironmentEC2{},
 		"AWS::CloudFormation::CustomResource":                         &cloudformation.CustomResource{},
 		"AWS::CloudFormation::Macro":                                  &cloudformation.Macro{},
@@ -208,6 +212,7 @@ func AllResources() map[string]Resource {
 		"AWS::CloudTrail::Trail":                                      &cloudtrail.Trail{},
 		"AWS::CloudWatch::Alarm":                                      &cloudwatch.Alarm{},
 		"AWS::CloudWatch::AnomalyDetector":                            &cloudwatch.AnomalyDetector{},
+		"AWS::CloudWatch::CompositeAlarm":                             &cloudwatch.CompositeAlarm{},
 		"AWS::CloudWatch::Dashboard":                                  &cloudwatch.Dashboard{},
 		"AWS::CloudWatch::InsightRule":                                &cloudwatch.InsightRule{},
 		"AWS::CodeBuild::Project":                                     &codebuild.Project{},
@@ -221,6 +226,7 @@ func AllResources() map[string]Resource {
 		"AWS::CodePipeline::Pipeline":                                 &codepipeline.Pipeline{},
 		"AWS::CodePipeline::Webhook":                                  &codepipeline.Webhook{},
 		"AWS::CodeStar::GitHubRepository":                             &codestar.GitHubRepository{},
+		"AWS::CodeStarConnections::Connection":                        &codestarconnections.Connection{},
 		"AWS::CodeStarNotifications::NotificationRule":                &codestarnotifications.NotificationRule{},
 		"AWS::Cognito::IdentityPool":                                  &cognito.IdentityPool{},
 		"AWS::Cognito::IdentityPoolRoleAttachment":                    &cognito.IdentityPoolRoleAttachment{},
@@ -2234,6 +2240,30 @@ func (t *Template) GetAthenaNamedQueryWithName(name string) (*athena.NamedQuery,
 	return nil, fmt.Errorf("resource %q of type athena.NamedQuery not found", name)
 }
 
+// GetAllAthenaWorkGroupResources retrieves all athena.WorkGroup items from an AWS CloudFormation template
+func (t *Template) GetAllAthenaWorkGroupResources() map[string]*athena.WorkGroup {
+	results := map[string]*athena.WorkGroup{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *athena.WorkGroup:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetAthenaWorkGroupWithName retrieves all athena.WorkGroup items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetAthenaWorkGroupWithName(name string) (*athena.WorkGroup, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *athena.WorkGroup:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type athena.WorkGroup not found", name)
+}
+
 // GetAllAutoScalingAutoScalingGroupResources retrieves all autoscaling.AutoScalingGroup items from an AWS CloudFormation template
 func (t *Template) GetAllAutoScalingAutoScalingGroupResources() map[string]*autoscaling.AutoScalingGroup {
 	results := map[string]*autoscaling.AutoScalingGroup{}
@@ -2570,6 +2600,30 @@ func (t *Template) GetCertificateManagerCertificateWithName(name string) (*certi
 	return nil, fmt.Errorf("resource %q of type certificatemanager.Certificate not found", name)
 }
 
+// GetAllChatbotSlackChannelConfigurationResources retrieves all chatbot.SlackChannelConfiguration items from an AWS CloudFormation template
+func (t *Template) GetAllChatbotSlackChannelConfigurationResources() map[string]*chatbot.SlackChannelConfiguration {
+	results := map[string]*chatbot.SlackChannelConfiguration{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *chatbot.SlackChannelConfiguration:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetChatbotSlackChannelConfigurationWithName retrieves all chatbot.SlackChannelConfiguration items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetChatbotSlackChannelConfigurationWithName(name string) (*chatbot.SlackChannelConfiguration, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *chatbot.SlackChannelConfiguration:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type chatbot.SlackChannelConfiguration not found", name)
+}
+
 // GetAllCloud9EnvironmentEC2Resources retrieves all cloud9.EnvironmentEC2 items from an AWS CloudFormation template
 func (t *Template) GetAllCloud9EnvironmentEC2Resources() map[string]*cloud9.EnvironmentEC2 {
 	results := map[string]*cloud9.EnvironmentEC2{}
@@ -2856,6 +2910,30 @@ func (t *Template) GetCloudWatchAnomalyDetectorWithName(name string) (*cloudwatc
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type cloudwatch.AnomalyDetector not found", name)
+}
+
+// GetAllCloudWatchCompositeAlarmResources retrieves all cloudwatch.CompositeAlarm items from an AWS CloudFormation template
+func (t *Template) GetAllCloudWatchCompositeAlarmResources() map[string]*cloudwatch.CompositeAlarm {
+	results := map[string]*cloudwatch.CompositeAlarm{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *cloudwatch.CompositeAlarm:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCloudWatchCompositeAlarmWithName retrieves all cloudwatch.CompositeAlarm items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCloudWatchCompositeAlarmWithName(name string) (*cloudwatch.CompositeAlarm, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *cloudwatch.CompositeAlarm:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type cloudwatch.CompositeAlarm not found", name)
 }
 
 // GetAllCloudWatchDashboardResources retrieves all cloudwatch.Dashboard items from an AWS CloudFormation template
@@ -3168,6 +3246,30 @@ func (t *Template) GetCodeStarGitHubRepositoryWithName(name string) (*codestar.G
 		}
 	}
 	return nil, fmt.Errorf("resource %q of type codestar.GitHubRepository not found", name)
+}
+
+// GetAllCodeStarConnectionsConnectionResources retrieves all codestarconnections.Connection items from an AWS CloudFormation template
+func (t *Template) GetAllCodeStarConnectionsConnectionResources() map[string]*codestarconnections.Connection {
+	results := map[string]*codestarconnections.Connection{}
+	for name, untyped := range t.Resources {
+		switch resource := untyped.(type) {
+		case *codestarconnections.Connection:
+			results[name] = resource
+		}
+	}
+	return results
+}
+
+// GetCodeStarConnectionsConnectionWithName retrieves all codestarconnections.Connection items from an AWS CloudFormation template
+// whose logical ID matches the provided name. Returns an error if not found.
+func (t *Template) GetCodeStarConnectionsConnectionWithName(name string) (*codestarconnections.Connection, error) {
+	if untyped, ok := t.Resources[name]; ok {
+		switch resource := untyped.(type) {
+		case *codestarconnections.Connection:
+			return resource, nil
+		}
+	}
+	return nil, fmt.Errorf("resource %q of type codestarconnections.Connection not found", name)
 }
 
 // GetAllCodeStarNotificationsNotificationRuleResources retrieves all codestarnotifications.NotificationRule items from an AWS CloudFormation template
