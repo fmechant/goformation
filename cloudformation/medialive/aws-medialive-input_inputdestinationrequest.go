@@ -1,7 +1,7 @@
 package medialive
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/fmechant/goformation/v4/cloudformation/policies"
 )
 
 // Input_InputDestinationRequest AWS CloudFormation Resource (AWS::MediaLive::Input.InputDestinationRequest)

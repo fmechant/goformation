@@ -1,7 +1,7 @@
 package eventschemas
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/fmechant/goformation/v4/cloudformation/policies"
 )
 
 // Discoverer_TagsEntry AWS CloudFormation Resource (AWS::EventSchemas::Discoverer.TagsEntry)

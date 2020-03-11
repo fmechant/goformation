@@ -1,7 +1,7 @@
 package amplify
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/fmechant/goformation/v4/cloudformation/policies"
 )
 
 // App_BasicAuthConfig AWS CloudFormation Resource (AWS::Amplify::App.BasicAuthConfig)

@@ -1,7 +1,7 @@
 package medialive
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/fmechant/goformation/v4/cloudformation/policies"
 )
 
 // Channel_Scte20SourceSettings AWS CloudFormation Resource (AWS::MediaLive::Channel.Scte20SourceSettings)

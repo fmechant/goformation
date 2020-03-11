@@ -1,7 +1,7 @@
 package msk
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/fmechant/goformation/v4/cloudformation/policies"
 )
 
 // Cluster_BrokerNodeGroupInfo AWS CloudFormation Resource (AWS::MSK::Cluster.BrokerNodeGroupInfo)

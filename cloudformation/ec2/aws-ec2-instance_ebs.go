@@ -1,7 +1,7 @@
 package ec2
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/fmechant/goformation/v4/cloudformation/policies"
 )
 
 // Instance_Ebs AWS CloudFormation Resource (AWS::EC2::Instance.Ebs)

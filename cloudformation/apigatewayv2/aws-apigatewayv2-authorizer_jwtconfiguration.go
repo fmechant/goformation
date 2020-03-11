@@ -1,7 +1,7 @@
 package apigatewayv2
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/fmechant/goformation/v4/cloudformation/policies"
 )
 
 // Authorizer_JWTConfiguration AWS CloudFormation Resource (AWS::ApiGatewayV2::Authorizer.JWTConfiguration)
