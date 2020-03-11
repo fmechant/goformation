@@ -1,7 +1,7 @@
 package medialive
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/fmechant/goformation/v4/cloudformation/policies"
 )
 
 // InputSecurityGroup_InputWhitelistRuleCidr AWS CloudFormation Resource (AWS::MediaLive::InputSecurityGroup.InputWhitelistRuleCidr)

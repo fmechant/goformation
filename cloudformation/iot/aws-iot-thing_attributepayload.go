@@ -1,7 +1,7 @@
 package iot
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/fmechant/goformation/v4/cloudformation/policies"
 )
 
 // Thing_AttributePayload AWS CloudFormation Resource (AWS::IoT::Thing.AttributePayload)

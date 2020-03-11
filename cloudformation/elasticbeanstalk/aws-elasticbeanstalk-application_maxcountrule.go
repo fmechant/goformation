@@ -1,7 +1,7 @@
 package elasticbeanstalk
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/fmechant/goformation/v4/cloudformation/policies"
 )
 
 // Application_MaxCountRule AWS CloudFormation Resource (AWS::ElasticBeanstalk::Application.MaxCountRule)

@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/fmechant/goformation/v4/cloudformation/policies"
 )
 
 // LocalGatewayRouteTableVPCAssociation AWS CloudFormation Resource (AWS::EC2::LocalGatewayRouteTableVPCAssociation)

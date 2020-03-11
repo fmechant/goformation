@@ -1,7 +1,7 @@
 package waf
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/fmechant/goformation/v4/cloudformation/policies"
 )
 
 // XssMatchSet_XssMatchTuple AWS CloudFormation Resource (AWS::WAF::XssMatchSet.XssMatchTuple)

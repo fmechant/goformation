@@ -1,7 +1,7 @@
 package lakeformation
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/fmechant/goformation/v4/cloudformation/policies"
 )
 
 // Permissions_DatabaseResource AWS CloudFormation Resource (AWS::LakeFormation::Permissions.DatabaseResource)

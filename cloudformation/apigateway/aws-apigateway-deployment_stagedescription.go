@@ -1,8 +1,8 @@
 package apigateway
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
-	"github.com/awslabs/goformation/v4/cloudformation/tags"
+	"github.com/fmechant/goformation/v4/cloudformation/policies"
+	"github.com/fmechant/goformation/v4/cloudformation/tags"
 )
 
 // Deployment_StageDescription AWS CloudFormation Resource (AWS::ApiGateway::Deployment.StageDescription)

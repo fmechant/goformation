@@ -1,7 +1,7 @@
 package managedblockchain
 
 import (
-	"github.com/awslabs/goformation/v4/cloudformation/policies"
+	"github.com/fmechant/goformation/v4/cloudformation/policies"
 )
 
 // Member_NetworkConfiguration AWS CloudFormation Resource (AWS::ManagedBlockchain::Member.NetworkConfiguration)
