@@ -3,7 +3,7 @@ package main_test
 import (
 	"encoding/json"
 
-	"github.com/awslabs/goformation/v4/cloudformation/serverless"
+	"github.com/fmechant/goformation/v4/cloudformation/serverless"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )
